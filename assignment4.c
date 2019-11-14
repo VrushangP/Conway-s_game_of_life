@@ -24,16 +24,6 @@ int main ( int argc, char *argv[] ) {
         ticks = atoi(argv[2]);
 	}
 
-    do {
-        printf("Start? (y or n): ");
-        if ((response = getchar()) == 'n') {
-            exit(0);
-        } else if (response != 'y') {
-            printf("Only the single characters y or n are acceptable.\n");
-        }
-        getchar();
-    } while (response != 'y');
-
     for ( i = 0; i < ROWS; i++)
     {
         for ( j = 0; j < COLUMONS; j++)
@@ -70,6 +60,16 @@ int main ( int argc, char *argv[] ) {
     system("clear");
     printCurrentYear(&currentYear[0][0], row, col, generation);
     system("sleep 0.25");
+
+    do {
+        printf("Start? (y or n): ");
+        if ((response = getchar()) == 'n') {
+            exit(0);
+        } else if (response != 'y') {
+            printf("Only the single characters y or n are acceptable.\n");
+        }
+        getchar();
+    } while (response != 'y');
 
     do {
         i = 0;

@@ -4,14 +4,18 @@
 
 void printCurrentYear(int *currentYear, int row, int col, int z) {
     int i, j;
-    printf(" --------------------------------------------------------------------------------- \n");
+    printf(" ----------------------------------------- \n");
     for ( i = 1; i < row-1; i++){
-        printf("| ");
+        printf("|");
         for( j=1; j < col-1; j++) {
-            printf("%d ", *(currentYear + (i*col) + j));
+            if (*(currentYear + (i*col) + j) == 1) {
+                printf("X");
+            } else {
+                printf(" ");
+            }
         }
         printf("|\n");
     }
-    printf(" ---------------------------------------------------------------------------------%d\n", z);
+    printf(" ----------------------------------------%d\n", z);
 }
 
