@@ -1,4 +1,4 @@
-all: assignment4 printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
+all: cgol printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
 
 printCurrentYear.o: printCurrentYear.c
 	gcc -ansi -Wall -c printCurrentYear.c
@@ -15,11 +15,11 @@ seedChange.o: seedChange.c
 copyFutCur.o: copyFutCur.c
 	gcc -ansi -Wall -c copyFutCur.c
 
-assignment4.o: assignment4.c
-	gcc -ansi -Wall -c assignment4.c
+cgol.o: cgol.c
+	gcc -ansi -Wall -c cgol.c
 
-assignment4: assignment4.o printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
-	gcc -ansi -Wall -o assignment4 assignment4.o printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
+cgol: cgol.o printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
+	gcc -ansi -Wall -o cgol cgol.o printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
 
 clean: 
-	rm assignment4 assignment4.o printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
+	rm cgol cgol.o printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
