@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include "gameOfLifeFunc.h"
-#define ROWS 22
-#define COLUMONS 42
 
 
 int main ( int argc, char *argv[] ) {   
@@ -12,11 +10,13 @@ int main ( int argc, char *argv[] ) {
     int ticks = 50;
 
     char str1[100];
-    int currentYear[ROWS][COLUMONS], newYear[ROWS][COLUMONS], futureYear[ROWS][COLUMONS];
+    int row = atoi(argv[3]) + 2;
+    int col = atoi(argv[4]) + 2;
+    int currentYear [row][col], newYear [row][col], futureYear [row][col];
     int i, j, ctr, tempInput;
     int z = 1;
 
-    int row = 22, col = 42;
+    
     int generation = 0;
     int breakOut;
     char cont = 'y';
@@ -26,9 +26,9 @@ int main ( int argc, char *argv[] ) {
         ticks = atoi(argv[2]);
 	}
 
-    for ( i = 0; i < ROWS; i++)
+    for ( i = 0; i < row; i++)
     {
-        for ( j = 0; j < COLUMONS; j++)
+        for ( j = 0; j < col; j++)
         {
             currentYear[i][j] = 0;
             newYear[i][j] = 0;
@@ -42,10 +42,10 @@ int main ( int argc, char *argv[] ) {
         printf("Error! cannot open file\n" );
         exit(0);
     }
-    
-    while (fgets(str1, sizeof str1, f1)) {
-        j=0; ctr=1;
-        for(i=0;i<=(strlen(str1));i++) {
+    j = 1;
+    while (fgets(str1, sizeof str1, f1) && j < row - 1) {
+        ctr=1;
+        for(i=0;ctr < col - 1;i++) {
             if(str1[i]==' '||str1[i]=='\0') {
             } else if (str1[i] == '\n') {
                 currentYear[z][ctr]= 0;
@@ -55,6 +55,7 @@ int main ( int argc, char *argv[] ) {
                 ctr++; 
             }
         }
+        j++;
         z++;
     }
     fclose(f1);

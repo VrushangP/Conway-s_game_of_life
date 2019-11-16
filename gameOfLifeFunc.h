@@ -1,5 +1,4 @@
-#define ROWS 22
-#define COLUMONS 42
+
 
 void printCurrentYear(int *currentYear, int y, int x, int z);
 void getNeighbours(int *newYear, int *currentYear, int y, int x);

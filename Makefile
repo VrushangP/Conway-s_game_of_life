@@ -18,8 +18,14 @@ copyFutCur.o: copyFutCur.c
 cgol.o: cgol.c
 	gcc -ansi -Wall -c cgol.c
 
+cgol-bonus.o: cgol-bonus.c
+	gcc -ansi -Wall -c cgol-bonus.c
+
 cgol: cgol.o printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
 	gcc -ansi -Wall -o cgol cgol.o printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
 
+cgol-bonus: cgol-bonus.o printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
+	gcc -ansi -Wall -o cgol-bonus cgol-bonus.o printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
+
 clean: 
-	rm cgol cgol.o printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
+	rm cgol cgol.o cgol-bonus cgol-bonus.o printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
