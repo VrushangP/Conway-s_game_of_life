@@ -1,4 +1,4 @@
-all: cgol printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
+all: cgol cgol-bonus printCurrentYear.o getNeighbours.o liveOrDead.o seedChange.o copyFutCur.o
 
 printCurrentYear.o: printCurrentYear.c
 	gcc -ansi -Wall -c printCurrentYear.c
