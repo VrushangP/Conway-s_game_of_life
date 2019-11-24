@@ -19,11 +19,31 @@ int main ( int argc, char *argv[] ) {
     int row = 22, col = 42;
     int generation = 0;
     int breakOut;
+
     char cont = 'y';
 
-
-	if (argc == 3) {
+    if (argc < 2 || argc > 3)
+    {
+        printf("improper usage, ./cgol FILENAME.seed NUMBEROFTICKS[optional] \n");
+        exit(0);
+    }
+	if (argc > 2) {
         ticks = atoi(argv[2]);
+
+        char* p = argv[2];
+        while (*p != '\0')
+        {
+            if (*p<'0' || *p>'9')
+            {
+                printf("%s is not a number, please enter an integer as the third argument", argv[2]);
+                return 0;
+            }
+            p++;
+        }
+        /* found a way to see if an input is an integer from this site
+         *
+         * https://stackoverflow.com/questions/29248585/c-checking-command-line-argument-is-integer-or-not
+         */
 	}
 
     for ( i = 0; i < ROWS; i++)
@@ -53,9 +73,20 @@ int main ( int argc, char *argv[] ) {
                 tempInput = atoi(&str1[i]);
                 currentYear[z][ctr] = tempInput;
                 ctr++; 
+                if (ctr > 41)
+                {
+                    printf("error, seed file colomuns surpass 40.\n");
+                    exit(0);
+                }
+                
             }
         }
         z++;
+        if (z > 21)
+        {
+            printf("error, seed file rows surpass 40.\n");
+            exit(0);
+        }
     }
     fclose(f1);
 
